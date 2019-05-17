@@ -1,5 +1,6 @@
 package com.sandipan.convertnumber.convertnumber;
 
+import com.sandipan.convertnumber.exception.NotANumberException;
 
 public class App 
 {
@@ -23,15 +24,32 @@ public class App
 
     	        String[] strValues = new String[] {
     	            "00567.782",
-    	            "-7893.3891"
+    	            "-7893.3891",
+    	            "abc"
     	        };
     	        
     	        for (long val : values) {
-    	            System.out.println(val + " = " + processor.getName(val) );
+    	            
+    	        	System.out.println(val + " = " + processor.getName(val) );
     	        }
     	        
     	        for (String strVal : strValues) {
-    	            System.out.println(strVal + " = " + processor.getName(strVal) );
+    	           
+    	            	try{
+    	            		System.out.println(strVal + " = " + processor.getName(strVal) );
+    	            		    	            		
+    	            	} catch (NumberFormatException ex){
+    	            		try {
+    	            			throw new NotANumberException(strVal +" = "+"This is not a number");
+    	            		} catch (NotANumberException e){
+    	            			System.out.println(e.getMessage());
+    	            			break;
+    	            		}
+    	            		
+    	            		
+    	            	}
+    	            
+    	        	
     	        }
 
     	}
