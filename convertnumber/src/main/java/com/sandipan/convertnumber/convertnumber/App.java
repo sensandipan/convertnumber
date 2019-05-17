@@ -1,0 +1,39 @@
+package com.sandipan.convertnumber.convertnumber;
+
+
+public class App 
+{
+	static public Placevalue processor;
+    public static void main( String[] args )
+    {
+    	
+    		processor = new Default();
+    		long[] values = new long[] {
+    	           
+    	            0,
+    	            2040,
+    	            45213,
+    	            100000,
+    	            10000007,
+    	            999999999,
+    	            -7834,
+    	            -89999
+              
+    	        };
+
+    	        String[] strValues = new String[] {
+    	            "00567.782",
+    	            "-7893.3891"
+    	        };
+    	        
+    	        for (long val : values) {
+    	            System.out.println(val + " = " + processor.getName(val) );
+    	        }
+    	        
+    	        for (String strVal : strValues) {
+    	            System.out.println(strVal + " = " + processor.getName(strVal) );
+    	        }
+
+    	}
+    }
+
